@@ -12,8 +12,6 @@ import java.util.Arrays;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
-import static java.lang.System.in;
-
 
 /**
 * @ClassName: SendDoorControl
@@ -69,13 +67,14 @@ public class SendDoorControl {
 
                     boolean[]  resultDate = new boolean[20];
                     Socket s = null ;
+                    InputStream in = null ;
                     try {
                         s = new Socket(host, port);
                         // 发送
                         s.getOutputStream().write(sendByte);
                         // 发送完毕
                         s.shutdownOutput();
-                        InputStream in = s.getInputStream();
+                        in = s.getInputStream();
 
                         int r = -1;
                         byte[] data = new byte[26];
@@ -149,13 +148,14 @@ public class SendDoorControl {
 
                     boolean[]  resultDate = new boolean[20];
                     Socket s = null ;
+                    InputStream in = null;
                     try {
                         s = new Socket(host, port);
                         // 发送
                         s.getOutputStream().write(sendByte);
                         // 发送完毕
                         s.shutdownOutput();
-                        InputStream in = s.getInputStream();
+                        in = s.getInputStream();
 
                         int r = -1;
                         byte[] data = new byte[26];
